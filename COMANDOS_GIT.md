@@ -185,7 +185,7 @@ git stash pop
 ```
 
 ## Ctrl + Z no Git
-
+#
 ### Remover alterações que não foram commitadas
 ```
 git checkout -- <arquivo>
@@ -207,7 +207,9 @@ git log
 git revert <commit_id>
 ```
 
-### Tags e releases
+## Tags e releases
+#
+Definindo uma versão para o projeto
 ```
 git tag -a <v0.1.0> -m <"Lançando a primeira versão da ..."
 git push origin master
