@@ -36,6 +36,20 @@ git remote add nome-repositorio <caminho/do/repositorio>
 git config --local user.name <Nome do usuário>
 ```
 
+Você pode configurar um repositório individual para usar um usuário/endereço de e-mail específico que substitui a configuração global. 
+Na raiz do repositório, execute:
+
+```
+git config user.name <Nome do usuário>
+git config user.email <E-mail do usuário>
+```
+
+Enquanto o usuário / email padrão está configurado em seu ~/.gitconfig
+```
+git config --global user.name <Nome do usuário>
+git config --global user.email <E-mail do usuário>
+```
+
 ### Visualizar o repositório:
 
 ```
