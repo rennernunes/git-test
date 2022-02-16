@@ -48,6 +48,46 @@ git remote -v
 git status
 ```
 
+### Visualizar todas as configurações:
+```
+git config -l
+git config --global --list
+```
+
+### Você pode remover configurações:
+
+```
+git config --global --unset user.name
+git config --global --unset user.email
+```
+
+
+###  Se você tiver mais variáveis ​​para uma configuração, você pode usar:
+
+```
+git config --global --unset-all user.name
+```
+
+
+### Editar o arquivo de configuração:
+
+```
+git config --global --edit
+
+Pressione Insert e remova a configuração
+
+Digite :wqe Enter para salvar.
+```
+
+
+### Alterar os detalhes de configuração do git.
+```
+git config --global --replace-all user.name "Your New Name"
+
+git config --global --replace-all user.email "Your new email"
+```
+
+
 </br>
 
 ### Ao executar o comando git status, recebemos algumas informações como:
@@ -114,6 +154,31 @@ git checkout <branch>
 ```
 git checkout -b <nova_branch>
 ```
+
+### Removendo uma branch local:
+```
+git checkout -b <nova_branch>
+```
+
+### Removendo todas as branchs local:
+```
+git branch -D `git branch --merged | grep -v \* | xargs`
+git branch --merged | grep -v \* | xargs git branch -D
+git branch | grep -v "master" | xargs git branch -D
+```
+
+É importante ressaltar que, o uso git branch de scripts é desencorajado. Para evitá-lo, use algo como:
+
+```
+git branch --merged master --no-color | grep -v "master\|stable\|main" | xargs git branch -d
+```
+
+### Erro fatal: malformed object name master, fatal: branch name required. 
+
+> Ocorre porque muitos projetos do github não têm a `master` como uma ramificação. </br> Eles costumam usar `main` em vez disso. 
+</br> Neste caso, substitua `git branch --merged master` por `git branch --merged main`
+
+
 
 ### Navegar em um commit pelo hash
 Exibe mensagem indica que estamos em um estado de cabeça (HEAD) desanexado (detached) do controle de versões. </br>
@@ -209,6 +274,7 @@ git revert <commit_id>
 
 ## Tags e releases
 #
+
 Definindo uma versão para o projeto
 ```
 git tag -a <v0.1.0> -m <"Lançando a primeira versão da ..."
